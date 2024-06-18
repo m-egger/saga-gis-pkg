@@ -1,0 +1,40 @@
+diff -ruN saga-9.0.0-orig/saga-gis/src/saga_core/saga_gui/dlg_about_logo.cpp saga-9.0.0/saga-gis/src/saga_core/saga_gui/dlg_about_logo.cpp
+--- saga-9.0.0-orig/saga-gis/src/saga_core/saga_gui/dlg_about_logo.cpp	2023-03-29 13:09:05.000000000 +0200
++++ saga-9.0.0/saga-gis/src/saga_core/saga_gui/dlg_about_logo.cpp	2023-03-31 00:13:12.745998586 +0200
+@@ -50,14 +50,6 @@
+ 
+ #include "res_images.h"
+ 
+-#include "res/xpm/logo_uhh.xpm"
+-#include "res/xpm/logo_scilands.xpm"
+-#ifdef wxHAS_SVG
+-#include "res/svg/logo_laserdata.svg.h"
+-#else
+-#include "res/xpm/logo_laserdata.xpm"
+-#endif
+-
+ #include "saga_gdi/sgdi_helper.h"
+ 
+ #include "dlg_about_logo.h"
+@@ -125,18 +117,14 @@
+ 	FONT_NORMAL; Draw_Text(dc, Cursor += Space * 0, "_______________________");
+ 	FONT_NORMAL; Draw_Text(dc, Cursor += Space * 1, "Brought to you by");
+ 
+-	Draw_XPM              (dc, Cursor += Space * 0, xpm_logo_uhh);
++	FONT_NORMAL; Draw_Text(dc, Cursor += Space * 3, "University of Hamburg");
+ 	FONT_NORMAL; Draw_Text(dc, Cursor += Space * 0, "Department of Physical Geography");
+ 	FONT_ITALIC; Draw_Text(dc, Cursor += Space * 0, L"Prof. Dr. J. Böhner, Dr. O. Conrad");
+ 
+-	Draw_XPM              (dc, Cursor += Space * 3, xpm_logo_scilands);
++	FONT_NORMAL; Draw_Text(dc, Cursor += Space * 3, "Scilands GmbH");
+ 	FONT_ITALIC; Draw_Text(dc, Cursor += Space / 2, L"M. Bock, R. Köthe, J. Spitzmüller");
+ 
+-#ifdef wxHAS_SVG
+-	Draw_SVG              (dc, Cursor += Space * 3, svg_logo_laserdata, wxSize(213, 47)); // size corresponds to the uhh-logo width
+-#else
+-	Draw_XPM              (dc, Cursor += Space * 3, xpm_logo_laserdata);
+-#endif
++	FONT_NORMAL; Draw_Text(dc, Cursor += Space * 3, "Laserdata GmbH");
+ 	FONT_ITALIC; Draw_Text(dc, Cursor += Space / 2, "Dr. V. Wichmann");
+ 
+ 	FONT_NORMAL; Draw_Text(dc, Cursor += Space / 2, "_______________________"); Cursor += Space;
